@@ -5,13 +5,13 @@
 
 % Der Read-Channel enthält die gemessene Lautstärke durch den Decibel-Sensor.
 
-% Channel ID to read data from 
+% Channel ID von dem Daten gelesen werden
 readChannelID = 1476009; 
 % Lautstaerke ID 
 lautstaerkeID  = 2;
 
 % Channel Read API Key 
-% If your channel is private, then enter the read API Key between the '' below: 
+% Falls der Channel private ist, muss der read API Key zwischen '' eingesetz werden 
 readAPIKey = 'SP0E5VY6DRO85RSH'; 
 
 % Holt die Personenzahl der letzten 45 Minuten vom Channel, der die Personendaten speichert.
@@ -21,14 +21,10 @@ lautstaerke = thingSpeakRead(readChannelID,'Fields',lautstaerkeID,'NumMinutes',4
 avgLautstaerke = mean(lautstaerke); 
 display(avgLautstaerke,'Durchschnittliche Lautstärke'); 
 
-% fprintf(['Note: To write data to another channel, assign the write channel ID \n',... 
-% 'and API Key to ''writeChannelID'' and  ''writeAPIKey'' variables. Also \n',...
-% 'uncomment the line of code containing ''thingSpeakWrite'' \n',... 
-% '(remove ''%%'' sign at the beginning of the line.)']); 
-
-% Replace the [] with channel ID to write data to: 
+% Um die Durchschnittswerte in den Channel schreiben zu können, muss die Channel 
+% ID ersetzt werden 
 writeChannelID = 1480627; 
-% Enter the Write API Key between the '' below: 
+% Write API Key zwischen '' ersetzen: 
 writeAPIKey = '7KKHT2RIRJM3188O'; 
 
 % Schreibt die Daten in den Channel für die Analyze
