@@ -1,27 +1,36 @@
-% Prior to running this MATLAB code template, assign the channel variables.
-% Set 'readChannelID' to the channel ID of the channel to read from. 
-% Also, assign the read field IDs to the variables 'fieldID1', and 'fieldID2'. 
 
-% TODO - Replace with channel ID to read data from:
-readChannelID = 1476009;
-% TODO - Replace with the Field ID to read data from:
-fieldID1 = 2;
-% TODO - Replace with the Field ID to read data from:
-fieldID2 = 1;
+% Personenzahl - 1. Channel ID von dem Daten zur Personenanzahl gelesen werden
+% update je nach Lösungsansatz mit 2 Controllern
+readChannelID1 = 1476009;
+1fieldID1 = 2;
+% löschen   
+1fieldID2 = 1;
 
-% Channel Read API Key 
-% If your channel is private, then enter the read API
-% Key between the '' below: 
-readAPIKey = 'SP0E5VY6DRO85RSH';
+% 1. Channel Read API Key 
+% Falls der Channel private ist, muss der read API Key zwischen '' eingesetz werden  
+readAPIKey1 = 'SP0E5VY6DRO85RSH';
 
-%% Read Data %%
-% Read first data variable
-[data1, time1] = thingSpeakRead(readChannelID, 'Field', fieldID1, 'NumPoints', 30, 'ReadKey', readAPIKey);
 
-% Read second data variable
-[data2, time2] = thingSpeakRead(readChannelID, 'Field', fieldID2, 'NumPoints', 30, 'ReadKey', readAPIKey);
+% Lautstärke - 2. Channel ID von dem Daten zur Lautstärke gelesen werden
+readChannelID2 = 1476009;
+lautstaerkeID = 1;
 
-%% Visualize Data %%
+% 2. Channel Read API Key 
+% Falls der Channel private ist, muss der read API Key zwischen '' eingesetz werden  
+readAPIKey2 = 'SP0E5VY6DRO85RSH';
+
+%% Lesen der Daten %%
+% Lesen der Personenzahl
+[data1, time1] = thingSpeakRead(readChannelID, 'Field', fieldID1, 'NumPoints', 45, 'ReadKey', readAPIKey1);
+
+% Lesen der Lautstärke
+[data2, time2] = thingSpeakRead(readChannelID, 'Field', fieldID2, 'NumPoints', 45, 'ReadKey', readAPIKey1);
+
+% update mit 2 controllern
+% Lesen der Lautstärke
+[data2, time2] = thingSpeakRead(readChannelID2, 'Field', lautstaerkeID, 'NumPoints', 45, 'ReadKey', readAPIKey2);
+
+%% Visualisierung der Daten %%
 xlabel('Uhrzeit');
 
 yyaxis left;
