@@ -1,4 +1,4 @@
-% Liest die Lautstärke aus dem ThingSpeak channel und schreibe den Durchschnitt der letzten 
+% Liest die Lautstärke aus dem ThingSpeak channel und schreibt den Durchschnitt der letzten 
 % 45 Minuten in einen anderen ThingSpeak channel. Mittels einer React-Applikation wird die
 % durchschnittliche Lautstärke aktualisiert, sobald neue Daten in den Ursprungs-Channel 
 % geladen werden.
@@ -14,10 +14,10 @@ lautstaerkeID  = 2;
 % Falls der Channel private ist, muss der read API Key zwischen '' eingesetz werden 
 readAPIKey = 'SP0E5VY6DRO85RSH'; 
 
-% Holt die Personenzahl der letzten 45 Minuten vom Channel, der die Personendaten speichert.
+% Holt die Lautstärke der letzten 45 Minuten vom Channel, der die Lautstärkedaten speichert.
 lautstaerke = thingSpeakRead(readChannelID,'Fields',lautstaerkeID,'NumMinutes',45,'ReadKey',readAPIKey); 
 
-% Berechnet die durchschnittliche Personenzahl 
+% Berechnet die durchschnittliche Lautstärke 
 avgLautstaerke = mean(lautstaerke); 
 display(avgLautstaerke,'Durchschnittliche Lautstärke'); 
 
@@ -27,5 +27,5 @@ writeChannelID = 1480627;
 % Write API Key zwischen '' ersetzen: 
 writeAPIKey = '7KKHT2RIRJM3188O'; 
 
-% Schreibt die Daten in den Channel für die Analyze
+% Schreibt die Daten in den Channel für die Analyse
 thingSpeakWrite(writeChannelID,avgLautstaerke,'WriteKey',writeAPIKey);
