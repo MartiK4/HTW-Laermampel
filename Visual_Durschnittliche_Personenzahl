@@ -13,6 +13,7 @@ personenAnzahlID  = 1;
 readAPIKey = 'SP0E5VY6DRO85RSH'; 
 
 % Holt die Personenzahl der letzten 45 Minuten vom Channel, der die Personendaten speichert.
+% Durch Austausch der 45 nach 'NumMinutes' kann der betrachtete Zeitraum geändert werden
 personenAnzahl = thingSpeakRead(readChannelID,'Fields',personenAnzahlID,'NumMinutes',45,'ReadKey',readAPIKey); 
 
 % Berechnet die durchschnittliche Personenzahl 
