@@ -1,1 +1,33 @@
+% Lies die Personenzahl aus dem ThingSpeak channel und schreibe den Durchschnitt der letzten 
+% 45 Minuten in einen anderen ThingSpeak channel.
 
+% Der Read-Channel enthält die gemessene Personenzahl durch die Personenschranke.
+
+% Channel ID to read data from 
+readChannelID = 1476009; 
+% Personenanzahl ID 
+personenAnzahlID  = 1;
+
+% Channel Read API Key 
+% If your channel is private, then enter the read API Key between the '' below: 
+readAPIKey = 'SP0E5VY6DRO85RSH'; 
+
+% Holt die Personenzahl der letzten 45 Minuten vom Channel, der die Personendaten speichert.
+personenAnzahl = thingSpeakRead(readChannelID,'Fields',personenAnzahlID,'NumMinutes',45,'ReadKey',readAPIKey); 
+
+% Berechnet die durchschnittliche Personenzahl 
+avgPersonenAnzahl = mean(personenAnzahl); 
+display(avgPersonenAnzahl,'Durchschnittliche Personenzahl'); 
+
+% fprintf(['Note: To write data to another channel, assign the write channel ID \n',... 
+% 'and API Key to ''writeChannelID'' and  ''writeAPIKey'' variables. Also \n',...
+% 'uncomment the line of code containing ''thingSpeakWrite'' \n',... 
+% '(remove ''%%'' sign at the beginning of the line.)']); 
+
+% Replace the [] with channel ID to write data to: 
+writeChannelID = 1480627; 
+% Enter the Write API Key between the '' below: 
+writeAPIKey = '7KKHT2RIRJM3188O'; 
+
+% Schreibt die Daten in den Channel für die Analyze
+thingSpeakWrite(writeChannelID,avgPersonenAnzahl,'WriteKey',writeAPIKey);
