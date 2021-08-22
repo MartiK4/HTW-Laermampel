@@ -3,7 +3,7 @@
 % durchschnittliche Lautstärke aktualisiert, sobald neue Daten in den Ursprungs-Channel 
 % geladen werden.
 
-% Der Read-Channel enthält die gemessene Lautstärke durch den Decibel-Sensor.
+% Der Read-Channel enthält die gemessene Lautstärke durch den Decibel-Sensor
 
 % Channel ID von dem Daten gelesen werden
 readChannelID = 1476009; 
@@ -14,7 +14,7 @@ lautstaerkeID  = 2;
 % Falls der Channel private ist, muss der read API Key zwischen '' eingesetz werden 
 readAPIKey = 'SP0E5VY6DRO85RSH'; 
 
-% Holt die Lautstärke der letzten 45 Minuten vom Channel, der die Lautstärkedaten speichert.
+% Holt die Lautstärke der letzten 45 Minuten vom Channel, der die Lautstärkedaten speichert
 lautstaerke = thingSpeakRead(readChannelID,'Fields',lautstaerkeID,'NumMinutes',45,'ReadKey',readAPIKey); 
 
 % Berechnet die durchschnittliche Lautstärke 
