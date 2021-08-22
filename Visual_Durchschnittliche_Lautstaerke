@@ -15,6 +15,7 @@ lautstaerkeID  = 2;
 readAPIKey = 'SP0E5VY6DRO85RSH'; 
 
 % Holt die Lautstärke der letzten 45 Minuten vom Channel, der die Lautstärkedaten speichert
+% Durch Austausch der 45 nach 'NumMinutes' kann der betrachtete Zeitraum geändert werden
 lautstaerke = thingSpeakRead(readChannelID,'Fields',lautstaerkeID,'NumMinutes',45,'ReadKey',readAPIKey); 
 
 % Berechnet die durchschnittliche Lautstärke 
