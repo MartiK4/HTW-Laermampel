@@ -1,42 +1,33 @@
-
-% Personenzahl - 1. Channel ID von dem Daten zur Personenanzahl gelesen werden
-% update je nach Lösungsansatz mit 2 Controllern
+% Lautstärke - 1. Channel ID von dem Daten zur Lautstärke gelesen werden
 readChannelID1 = 1476009;
-1fieldID1 = 2;
-% löschen   
-1fieldID2 = 1;
+fieldID1 = 1;
 
 % 1. Channel Read API Key 
 % Falls der Channel private ist, muss der read API Key zwischen '' eingesetz werden  
 readAPIKey1 = 'SP0E5VY6DRO85RSH';
 
-
-% Lautstärke - 2. Channel ID von dem Daten zur Lautstärke gelesen werden
-readChannelID2 = 1476009;
-lautstaerkeID = 1;
+% Personenzahl - 2. Channel ID von dem Daten zur Personenanzahl gelesen werden
+readChannelID2 = 1480627;
+fieldID2 = 1;
 
 % 2. Channel Read API Key 
 % Falls der Channel private ist, muss der read API Key zwischen '' eingesetz werden  
-readAPIKey2 = 'SP0E5VY6DRO85RSH';
+readAPIKey2 = 'VXAUFZIO9MMPTBU0';
 
 %% Lesen der Daten %%
 % Lesen der Personenzahl
-[data1, time1] = thingSpeakRead(readChannelID, 'Field', fieldID1, 'NumPoints', 45, 'ReadKey', readAPIKey1);
+[Lautstaerke, time1] = thingSpeakRead(readChannelID1, 'Field', fieldID1, 'NumPoints', 10, 'ReadKey', readAPIKey1);
 
 % Lesen der Lautstärke
-[data2, time2] = thingSpeakRead(readChannelID, 'Field', fieldID2, 'NumPoints', 45, 'ReadKey', readAPIKey1);
-
-% update mit 2 controllern
-% Lesen der Lautstärke
-[data2, time2] = thingSpeakRead(readChannelID2, 'Field', lautstaerkeID, 'NumPoints', 45, 'ReadKey', readAPIKey2);
+[Personenzahl, time2] = thingSpeakRead(readChannelID2, 'Field', fieldID2, 'NumPoints', 10, 'ReadKey', readAPIKey2);
 
 %% Visualisierung der Daten %%
 xlabel('Uhrzeit');
 
 yyaxis left;
-plot(time1, data1)
-ylabel('Personenzahl');
+plot(time1, Lautstaerke)
+ylabel('Lautstärke');
 
 yyaxis right;
-plot(time2, data2);
-ylabel('Lautstärke');
+plot(time2, Personenzahl);
+ylabel('Personenzahl');
