@@ -16,10 +16,10 @@ readAPIKey2 = 'VXAUFZIO9MMPTBU0';
 
 %% Lesen der Daten %%
 % Lesen der Personenzahl
-[Lautstaerke, time1] = thingSpeakRead(readChannelID1, 'Field', fieldID1, 'NumPoints', 10, 'ReadKey', readAPIKey1);
+[Lautstaerke, time1] = thingSpeakRead(readChannelID1, 'Field', fieldID1, 'NumPoints', 45, 'ReadKey', readAPIKey1);
 
 % Lesen der Lautstärke
-[Personenzahl, time2] = thingSpeakRead(readChannelID2, 'Field', fieldID2, 'NumPoints', 10, 'ReadKey', readAPIKey2);
+[Personenzahl, time2] = thingSpeakRead(readChannelID2, 'Field', fieldID2, 'NumPoints', 45, 'ReadKey', readAPIKey2);
 
 %% Visualisierung der Daten %%
 xlabel('Uhrzeit');
